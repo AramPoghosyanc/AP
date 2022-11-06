@@ -86,7 +86,7 @@ function setup() {
         for (let i in eaterArr) {
             eaterArr[i].mul();
             eaterArr[i].eat();
-            eaterArr[i].die();
+            //eaterArr[i].die();
         }
 
 
