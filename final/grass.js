@@ -16,5 +16,4 @@ class Grass extends LivingCreature{
         }
     }
 
-
 }

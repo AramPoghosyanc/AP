@@ -1,51 +1,14 @@
-class Eater {
+class Eater extends LivingCreature{
     constructor(x, y, index) {
-        this.x = x;
-        this.y = y;
-        this.energy = 1
-        this.index = index;
-        this.directions = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1]
-        ];
+        super(x,y,index)
+        this.energy = 3;
     }
 
-
-    getNewCordinates(){
-        this.directions = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1]
-        ];
-    }
-
+   
     chooseCell(character) {
-        this.getNewCordinates();
-        let foundGY = [];
-        for (let i in this.directions) {
-            let x = this.directions[i][0];
-            let y = this.directions[i][1];
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == character) {
-                    foundGY.push(this.directions[i]);
-                }
-            }
-
-        }
-        return foundGY;
-    }
-
+        super.getNewCordinates();
+        return super.chooseCell(character);
+     }
 
     mul() {
         let greyCells = this.chooseCell(0);
@@ -75,7 +38,7 @@ class Eater {
 
             let newEater = new Eater(newX, newY, 3);
             eaterArr.push(newEater);
-            this.multiply = 0;
+            super.multiply = 0;
         }
     }
 
